@@ -26,68 +26,36 @@ jobs:
         with:
           # Custom JSON payload to send to Slack
           payload: |
-             {
-                "blocks": [
-                  {
-                    "type": "header",
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "DipSA 56 CI/CD Submission",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "This is a section block with a button."
+                  },
+                  "accessory": {
+                    "type": "button",
                     "text": {
                       "type": "plain_text",
-                      "text": "DipSA 56 CI/CD Submission",
+                      "text": "Go",
                       "emoji": true
-                    }
-                  },
-                  {
-                    "type": "section",
-                    "fields": [
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Name:* Cheng YiYang "
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Email:* e1112937@u.nus.edu"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Metriculation:* A0269554N"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Repository:*"
-                      },
-                      {
-                        "type": "plain_text",
-                        "text": " ",
-                        "emoji": true
-                      },
-                      {
-                        "type": "plain_text",
-                        "text": "*this is plain_text text*",
-                        "emoji": true
-                      }
-                    ]
-                  },
-                  {
-                    "type": "section",
-                    "text": {
-                      "type": "mrkdwn",
-                      "text": "This is a section block with a button."
                     },
-                    "accessory": {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "Go",
-                        "emoji": true
-                      },
-                      "value": "click_me_123",
-                      "url": "https://google.com",
-                      "action_id": "button-action"
-                    }
+                    "value": "click_me_123",
+                    "url": "https://google.com",
+                    "action_id": "button-action"
                   }
-                ]
-              }
-
+                }
+              ]
+            }
         env:
           # Secret Slack Webhook URL
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
