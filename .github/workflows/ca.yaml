@@ -70,7 +70,7 @@ jobs:
                     "type": "section",
                     "text": {
                       "type": "mrkdwn",
-                      "text": "${{vars.RAILWAYURLYY}}"
+                      "text": "This is a section block with a button."
                     },
                     "accessory": {
                       "type": "button",
@@ -79,8 +79,8 @@ jobs:
                         "text": "Go",
                         "emoji": true
                       },
-                      "value": "railway_url",
-                      "url": "${{vars.RAILWAYURLYY}}",
+                      "value": "click_me_123",
+                      "url": "https://google.com",
                       "action_id": "button-action"
                     }
                   }
