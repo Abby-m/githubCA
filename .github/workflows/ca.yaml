@@ -16,3 +16,74 @@ jobs:
         env:
           RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
 
+      - name: Send custom JSON data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          # This data can be any valid JSON from a previous step in the GitHub Action
+          payload: |
+             {
+                "blocks": [
+                  {
+                    "type": "header",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "DipSA 56 CI/CD Submission",
+                      "emoji": true
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "fields": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Name:* Cheng YiYang "
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Email:* e1112937@u.nus.edu"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Metriculation:* A0269554N"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Repository:*"
+                      },
+                      {
+                        "type": "plain_text",
+                        "text": " ",
+                        "emoji": true
+                      },
+                      {
+                        "type": "plain_text",
+                        "text": "*this is plain_text text*",
+                        "emoji": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "This is a section block with a button."
+                    },
+                    "accessory": {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Go",
+                        "emoji": true
+                      },
+                      "value": "click_me_123",
+                      "url": "https://google.com",
+                      "action_id": "button-action"
+                    }
+                  }
+                ]
+              }
+
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
