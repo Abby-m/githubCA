@@ -70,7 +70,7 @@ jobs:
                     "type": "section",
                     "text": {
                       "type": "mrkdwn",
-                      "text": "${{vars.RAILWAY_URL}}"
+                      "text": "${{vars.RAILWAYURLYY}}"
                     },
                     "accessory": {
                       "type": "button",
@@ -80,7 +80,7 @@ jobs:
                         "emoji": true
                       },
                       "value": "click_me_123",
-                      "url": "${{vars.RAILWAY_URL}}",
+                      "url": "${{vars.RAILWAYURLYY}}",
                       "action_id": "button-action"
                     }
                   }
