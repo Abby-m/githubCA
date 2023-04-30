@@ -70,7 +70,7 @@ jobs:
                     "type": "section",
                     "text": {
                       "type": "mrkdwn",
-                      "text": "This is a section block with a button."
+                      "text": "${{vars.RAILWAY_URL}}"
                     },
                     "accessory": {
                       "type": "button",
@@ -80,7 +80,7 @@ jobs:
                         "emoji": true
                       },
                       "value": "click_me_123",
-                      "url": "https://google.com",
+                      "url": "${{vars.RAILWAY_URL}}",
                       "action_id": "button-action"
                     }
                   }
