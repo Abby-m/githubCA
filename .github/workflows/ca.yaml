@@ -80,7 +80,7 @@ jobs:
                         "emoji": true
                       },
                       "value": "click_me_123",
-                      "url": "www.google.com",
+                      "url": "https://google.com",
                       "action_id": "button-action"
                     }
                   }
