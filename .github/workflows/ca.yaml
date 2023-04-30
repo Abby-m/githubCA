@@ -61,9 +61,8 @@ jobs:
                         "emoji": true
                       },
                       {
-                        "type": "plain_text",
-                        "text": "*this is plain_text text*",
-                        "emoji": true
+                        "type": "mrkdwn",
+                        "text": "${{github.event.repository.url}}"
                       }
                     ]
                   },
@@ -71,7 +70,7 @@ jobs:
                     "type": "section",
                     "text": {
                       "type": "mrkdwn",
-                      "text": "This is a section block with a button."
+                      "text": "${{vars.RAILWAYURLYY}}"
                     },
                     "accessory": {
                       "type": "button",
@@ -80,8 +79,8 @@ jobs:
                         "text": "Go",
                         "emoji": true
                       },
-                      "value": "click_me_123",
-                      "url": "https://google.com",
+                      "value": "railway_url",
+                      "url": "${{vars.RAILWAYURLYY}}",
                       "action_id": "button-action"
                     }
                   }
