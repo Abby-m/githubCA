@@ -80,7 +80,7 @@ jobs:
                         "emoji": true
                       },
                       "value": "click_me_123",
-                      "url": "https://google.com",
+                      "url": "${{vars.RAILWAYURLYY}}",
                       "action_id": "button-action"
                     }
                   }
