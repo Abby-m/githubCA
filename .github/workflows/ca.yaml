@@ -1,7 +1,9 @@
 name: githubCA
 on: 
   push: 
-  
+    branches:
+    - 'release/v[0-9]+.[0-9]+'
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -9,16 +11,19 @@ jobs:
       # Checkout code from the repository
       - name: Checkout
         uses: actions/checkout@v3
+        if: "!contains(github.event.head_commit.message, '#NORUN')"
       
       # Install the Railway CLI
       - name: Install Railway
         run: npm i -g @railway/cli
+        if: "!contains(github.event.head_commit.message, '#NORUN')"
 
       # Deploy the application using the Railway CLI
       - name: Deploy
         run: railway up
         env:
           RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
+        if: "!contains(github.event.head_commit.message, '#NORUN')"
 
       # Send custom JSON data to a Slack workflow
       - name: Send custom JSON data to Slack workflow
@@ -92,3 +97,4 @@ jobs:
           # Secret Slack Webhook URL
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        if: "!contains(github.event.head_commit.message, '#NORUN')"
